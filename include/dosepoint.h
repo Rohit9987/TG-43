@@ -13,12 +13,14 @@ public:
 
     double computeDose();
     void cartesianToPolar();
+    
+    void setSource(Source& source) { m_source = &source;}
 
 private:
     const unsigned short m_dosePointid;
-    Source *source;
+    Source* m_source;
 
-    double x, y, z;
+    double m_x, m_y, m_z;
     double r, phi, theta;
 
     double m_radialDoseFactor;

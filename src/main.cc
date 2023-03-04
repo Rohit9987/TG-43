@@ -19,12 +19,12 @@ int main()
 
     numSources = 0;
 
-    DosePoint dosepoint1(1.0, 0, 0);
-    dosepoint1.cartesianToPolar();
-
-    const char* sourceType = "ir-192";
-
+    const char* sourceType = "i-125";
     Source source(10.0, sourceType, 0, 0, 0);
+
+    DosePoint dosepoint1(0.0, 10., 0);
+    dosepoint1.setSource(source);
+    dosepoint1.cartesianToPolar();
 
 
     return 0;

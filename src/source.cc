@@ -3,9 +3,10 @@
 #include "source.h"
 
 #include <iostream>
+#include <cstring>
 
 Source::Source(const double activity, const char* sourceType, const double x, const double y, const double z)
-    : m_activity(activity), m_sourceType(sourceType), m_numSource(numSources++)
+    : m_activity(activity), m_sourceType(sourceType), m_numSource(numSources++), m_x(x), m_y(y), m_z(z)
 {
 #ifdef DEBUG
     std::cout << "*****Source*****" << std::endl;
@@ -13,6 +14,23 @@ Source::Source(const double activity, const char* sourceType, const double x, co
     std::cout << "Source type : " << m_sourceType << std::endl;
     std::cout << "Source activity : " << m_activity << " Ci" << std::endl;
     std::cout << "****************" << std::endl;
+#endif
+
+    setDoseRateConstant();
+
+}
+
+void Source::setDoseRateConstant()
+{
+    std::cout << m_sourceType << std::endl;
+    if(strcmp(m_sourceType,"i-125") == 0)
+    {
+        m_doseRateConstant = 0.925;   // WAFAC, % unc = 0.20%
+        //m_dose_rate_constant = 0.959;   // point, % unc = 0.30%
+    }
+
+#ifdef DEBUG
+    std::cout << "Dose Rate Constant: " << m_doseRateConstant << " cGy/Uh." << std::endl;
 #endif
 }
 
