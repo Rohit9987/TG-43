@@ -16,21 +16,24 @@ Source::Source(const double activity, const char* sourceType, const double x, co
     std::cout << "****************" << std::endl;
 #endif
 
-    setDoseRateConstant();
+    setSourceProperties();
 
 }
 
-void Source::setDoseRateConstant()
+void Source::setSourceProperties()
 {
     std::cout << m_sourceType << std::endl;
     if(strcmp(m_sourceType,"i-125") == 0)
     {
         m_doseRateConstant = 0.925;   // WAFAC, % unc = 0.20%
         //m_dose_rate_constant = 0.959;   // point, % unc = 0.30%
+
+        m_activeLength = 0.300;
     }
 
 #ifdef DEBUG
     std::cout << "Dose Rate Constant: " << m_doseRateConstant << " cGy/Uh." << std::endl;
+    std::cout << "Active Length: " << m_activeLength << " cm." << std::endl;
 #endif
 }
 

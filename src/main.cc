@@ -22,11 +22,19 @@ int main()
     const char* sourceType = "i-125";
     Source source(10.0, sourceType, 0, 0, 0);
 
-    DosePoint dosepoint1(0.0, 10., 0);
-    dosepoint1.setSource(source);
-    dosepoint1.cartesianToPolar();
+    DosePoint dosepoint1(source, 2.0, 2.0, 0.12);
+    //dosepoint1.setSource(source);
+    //dosepoint1.cartesianToPolar();
 
 
     return 0;
 
 }
+
+/*
+TODO
+initialize numsources and numdosepoints here
+send the ints by reference and modify
+from other classes
+
+*/

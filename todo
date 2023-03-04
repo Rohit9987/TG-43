@@ -1,0 +1,8 @@
+
+1. calculate G(r,theta)
+
+1. read csv- tg43 data
+
+2. read rt-struct dicom using dcmtk
+
+3. gradient descent algorithm

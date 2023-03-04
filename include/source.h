@@ -12,6 +12,8 @@ public:
     double getY() { return m_y;}
     double getZ() { return m_z;}
 
+    double getActiveLength() const {return m_activeLength;}
+
 private:
     const unsigned short m_numSource;
     const char* m_sourceType;
@@ -22,13 +24,11 @@ private:
     double time;
     double m_AKS;           // Air kerma strength
     double m_doseRateConstant;
-
-    void setDoseRateConstant();
+    void setSourceProperties();
 
     // change everything to const
 
 };
-
     /*
     notes
 
