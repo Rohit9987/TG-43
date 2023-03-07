@@ -5,8 +5,8 @@
 #include <iostream>
 #include <cstring>
 
-Source::Source(const double activity, const char* sourceType, const double x, const double y, const double z)
-    : m_activity(activity), m_sourceType(sourceType), m_numSource(numSources++), m_x(x), m_y(y), m_z(z)
+Source::Source(unsigned short* numSources, const double activity, const char* sourceType, const double x, const double y, const double z)
+    : m_activity(activity), m_sourceType(sourceType), m_numSource((*numSources)++), m_x(x), m_y(y), m_z(z)
 {
 #ifdef DEBUG
     std::cout << "*****Source*****" << std::endl;
@@ -15,7 +15,7 @@ Source::Source(const double activity, const char* sourceType, const double x, co
     std::cout << "Source activity : " << m_activity << " Ci" << std::endl;
     std::cout << "****************" << std::endl;
 #endif
-
+    m_numSources = numSources;
     setSourceProperties();
 
 }
@@ -39,7 +39,7 @@ void Source::setSourceProperties()
 
 Source::~Source()
 {
-    numSources--;
+    *m_numSources--;
 
 #ifdef DEBUG
     std::cout << "Destroyed source: " << m_numSource << std::endl;

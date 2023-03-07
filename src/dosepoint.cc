@@ -5,8 +5,8 @@
 
 #include <iostream>
 
-DosePoint::DosePoint(Source& source, double x, double y, double z)
-    :m_source(&source), m_dosePointid(numDosePoints++), m_x(x), m_y(y), m_z(z)
+DosePoint::DosePoint(unsigned* numDosePoints, Source& source, double x, double y, double z)
+    :m_source(&source), m_dosePointid((*numDosePoints)++), m_x(x), m_y(y), m_z(z)
 {
 #ifdef DEBUG
     std::cout << "*****DosePoint*****" << std::endl;

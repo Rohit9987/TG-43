@@ -5,7 +5,7 @@
 class Source
 {
 public:
-    Source(const double activity, const char* sourceType, const double x, const double y, const double z);
+    Source(unsigned short* numSources, const double activity, const char* sourceType, const double x, const double y, const double z);
     ~Source();
 
     double getX() { return m_x;}
@@ -16,6 +16,7 @@ public:
 
 private:
     const unsigned short m_numSource;
+    unsigned short *m_numSources;
     const char* m_sourceType;
 
     double m_x, m_y, m_z;

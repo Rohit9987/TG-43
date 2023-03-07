@@ -9,7 +9,7 @@
 class DosePoint
 {
 public:
-    DosePoint(Source& source, double x, double y, double z);
+    DosePoint(unsigned* numDosePoints, Source& source, double x, double y, double z);
     ~DosePoint();
 
     double computeDose();

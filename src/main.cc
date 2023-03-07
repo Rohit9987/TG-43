@@ -17,12 +17,14 @@ int main()
 {
     header();
 
-    numSources = 0;
+    unsigned short numSources = 0;
+    unsigned numDosePoints = 0;
 
     const char* sourceType = "i-125";
-    Source source(10.0, sourceType, 0, 0, 0);
+    Source source(&numSources, 1.0, sourceType, 0, 0, 0);
+    Source source1(&numSources, 1.0, sourceType, 0, 0, 0);
 
-    DosePoint dosepoint1(source, 2.0, 2.0, 0.12);
+    DosePoint dosepoint1(&numDosePoints, source, 2.0, 2.0, 0.12);
     //dosepoint1.setSource(source);
     //dosepoint1.cartesianToPolar();
 
